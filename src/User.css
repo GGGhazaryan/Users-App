@@ -7,3 +7,31 @@ body {
 .normal-p {
     color: black;
 }
+
+.user-container {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.user-img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.normal-p {
+    margin: 5px 0;
+}
+
+.button-group {
+    margin-top: 10px;
+}
+
+.button-group button {
+    margin-right: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+}

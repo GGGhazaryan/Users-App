@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './UserPost.css';
 
 function UserPost() {
     const { id } = useParams();
@@ -31,45 +32,26 @@ function UserPost() {
     if (loading) return <div>Loading posts...</div>;
 
     return (
-        <div style={{ padding: 20 }}>
+        <div className="post-container">
             <h2>User #{id} - Posts</h2>
             {posts.map(post => (
-                <div key={post.id} style={{ marginBottom: 20, border: '1px solid black', padding: 10, borderRadius: 8 }}>
-                    <h3 style={{ color: 'black' }}>{post.title}</h3>
+                <div key={post.id} className="post-card">
+                    <h3>{post.title}</h3>
                     <p>{post.body}</p>
-                    <button
-                        onClick={() => fetchComments(post.id)}
-                        className="commentBtn"
-                        style={{ marginTop: '10px' }}
-                    >
+                    <button onClick={() => fetchComments(post.id)} className="comment-btn">
                         Comments
                     </button>
                 </div>
             ))}
 
             {showPopup && (
-                <div style={{
-                    position: 'fixed',
-                    top: '10%',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'gray',
-                    border: '2px solid black',
-                    padding: '20px',
-                    zIndex: 9999,
-                    maxHeight: '70vh',
-                    overflowY: 'auto',
-                    width: '80%',
-                    borderRadius: '10px'
-                }}>
-                    <h3 style={{color: 'black'}}>Comments for Post #{activePostId}</h3>
-                    <button onClick={() => setShowPopup(false)} style={{ float: 'right', marginBottom: 10 }}>
-                        Close
-                    </button>
+                <div className="popup">
+                    <button className="close-btn" onClick={() => setShowPopup(false)}>Close</button>
+                    <h3>Comments for Post #{activePostId}</h3>
                     {comments.map(comment => (
-                        <div key={comment.id} style={{borderBottom: '1px solid #ccc', marginBottom: 10 }}>
+                        <div key={comment.id} className="comment">
                             <p><strong>{comment.name}</strong> ({comment.email})</p>
-                            <p> {comment.body}</p>
+                            <p>{comment.body}</p>
                         </div>
                     ))}
                 </div>

@@ -1,12 +1,67 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, #d7dfe9, #f0f4f9);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.ul1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding: 60px 50px;
 }
 
 .usersUl {
-    transition: transform 0.3s ease;
+    flex: 0 0 calc(20% - 40px);
+    height: 280px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .usersUl:hover {
-    transform: scale(1.1);
+    transform: rotateY(180deg);
+}
+
+.user-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.usersUl:hover .user-img {
+    transform: scale(1.1) rotateZ(360deg);
+}
+
+.usersUl div {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: color 0.4s ease;
+    z-index: 2;
+    position: relative;
 }

@@ -16,21 +16,26 @@ function UserPage() {
     if (!user) return <div>Loading...</div>;
 
     return (
-        <div style={{ padding: '20px', border: '1px solid black', borderRadius: '10px' }}>
-            <img src="https://avatars.mds.yandex.net/i?id=d44a2f9b7950ac31d2f42efc65d5e508bb88c229-5239568-images-thumbs&n=13"
-                alt="" style={{ width: 50, height: 50, borderRadius: '50%', marginBottom: 8 }} />
+        <div className="user-container">
+            <img
+                src="https://avatars.mds.yandex.net/i?id=d44a2f9b7950ac31d2f42efc65d5e508bb88c229-5239568-images-thumbs&n=13"
+                alt="user"
+                className="user-img"
+            />
             <h1 className="normal-p">{user.name}</h1>
             <p className="normal-p">Email: {user.email}</p>
             <p className="normal-p">City: {user.address.city}</p>
             <p className="normal-p">Phone: {user.phone}</p>
-            <p className='normal-p'>Street: {user.address.street}</p>
-            <p className='normal-p'>Zip-Code: {user.address.zipcode}</p>
-            <p className='normal-p'>Website: {user.website}</p>
-            <p className='normal-p'>Company name: {user.company.name}</p>
-            <p className='normal-p'>CatchPhrase: {user.company.catchPhrase}</p>
+            <p className="normal-p">Street: {user.address.street}</p>
+            <p className="normal-p">Zip-Code: {user.address.zipcode}</p>
+            <p className="normal-p">Website: {user.website}</p>
+            <p className="normal-p">Company name: {user.company.name}</p>
+            <p className="normal-p">CatchPhrase: {user.company.catchPhrase}</p>
 
-            <button style={{ marginTop: 10 }} onClick={() => navigate(`/users/${id}/post`)}>Post</button>
-            <button style={{ marginLeft: 5, marginTop: 10 }}  onClick={() => navigate(`/users/${id}/album`)}>Album</button>
+            <div className="button-group">
+                <button onClick={() => navigate(`/users/${id}/post`)}>Post</button>
+                <button onClick={() => navigate(`/users/${id}/album`)}>Album</button>
+            </div>
         </div>
     );
 }
